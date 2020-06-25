@@ -1,0 +1,15 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+        hidden: true
+    room_name:
+        label: Room Name
+    room_type_id:
+        label: Room Type
+        type: dropdown
+        select: room_type_name

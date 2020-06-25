@@ -1,0 +1,14 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    product_name:
+        label: Nhap ten san pham
+    category_id:
+        label: Chon danh muc
+        type: dropdown
+        cssClass: tung-test-css

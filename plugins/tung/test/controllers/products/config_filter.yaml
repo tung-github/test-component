@@ -1,0 +1,7 @@
+scopes:
+  Category_id:
+    label: Ten danh muc cua san pham
+    modelClass: Tung\Test\Models\Category
+    conditions: category_id in (:filtered)
+    nameFrom: category_name
+  

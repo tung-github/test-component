@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Booking
+
+# Model Form Field configuration
+form: $/tung/booking/models/booking/fields.yaml
+
+# Model Class name
+modelClass: Tung\Booking\Models\Booking
+
+# Default redirect location
+defaultRedirect: tung/booking/bookings
+
+# Create page
+create:
+    title: Create Booking
+    redirect: tung/booking/bookings/update/:id
+    redirectClose: tung/booking/bookings
+
+# Update page
+update:
+    title: Edit Booking
+    redirect: tung/booking/bookings
+    redirectClose: tung/booking/bookings
+
+# Preview page
+preview:
+    title: Preview Booking

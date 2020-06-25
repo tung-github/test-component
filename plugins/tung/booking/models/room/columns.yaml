@@ -1,0 +1,17 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    room_name:
+        label: Room Name
+        searchable: true
+    room_type_id:
+        label: Room Type Name
+        searchable: true
+        relation: 'room_type'
+        select: room_type_name
+    

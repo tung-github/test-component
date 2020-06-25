@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Category
+
+# Model Form Field configuration
+form: $/tung/test/models/category/fields.yaml
+
+# Model Class name
+modelClass: Tung\Test\Models\Category
+
+# Default redirect location
+defaultRedirect: tung/test/categorys
+
+# Create page
+create:
+    title: Create Category
+    redirect: tung/test/categorys/update/:id
+    redirectClose: tung/test/categorys
+
+# Update page
+update:
+    title: Edit Category
+    redirect: tung/test/categorys
+    redirectClose: tung/test/categorys
+
+# Preview page
+preview:
+    title: Preview Category

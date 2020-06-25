@@ -1,0 +1,45 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    renter:
+        label: Name
+        searchable: true
+    person:
+        label: Person Number
+        searchable: true
+    room_type_id:
+        label: Room Type
+        searchable: true
+        relation: 'room_type'
+        select: room_type_name
+    bookingToRoom:
+        label: Room
+        searchable: true
+        type: partial
+        path: ~/plugins/tung/booking/models/booking/content_room.htm
+    status_id:
+        label: Status
+        searchable: true
+        relation: 'status'
+        select: status_name
+    checkin_date:
+        label: Check In Date
+        searchable: true
+    checkout_date:
+        label: Check Out Date
+        searchable: true
+    has_checkin:
+        label: Has Check In
+        searchable: true
+        type: partial
+        path: ~/plugins/tung/booking/models/booking/content_has_checkin.htm
+    has_checkout:
+        label: Has Check Out
+        searchable: true
+        type: partial
+        path: ~/plugins/tung/booking/models/booking/content_has_checkout.htm

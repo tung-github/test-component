@@ -1,0 +1,18 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    product_name:
+        label: Ten san pham
+        searchable: true
+    category_id:
+        label: Ten danh muc cua san pham
+        relation: category
+        select: concat(id, '-', category_name)
+
+        # // khong hien ra ten cua category
+        

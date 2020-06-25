@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Product
+
+# Model Form Field configuration
+form: $/tung/test/models/product/fields.yaml
+
+# Model Class name
+modelClass: Tung\Test\Models\Product
+
+# Default redirect location
+defaultRedirect: tung/test/products
+
+# Create page
+create:
+    title: Create Product
+    redirect: tung/test/products/update/:id
+    redirectClose: tung/test/products
+
+# Update page
+update:
+    title: Edit Product
+    redirect: tung/test/products
+    redirectClose: tung/test/products
+
+# Preview page
+preview:
+    title: Preview Product

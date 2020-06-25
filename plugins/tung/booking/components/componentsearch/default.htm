@@ -1,0 +1,29 @@
+<div class="form-group">
+    <input required id="search"/>
+    <div id="show_kq" style="display:none;">
+        <ul class="list-group show_kq">
+            
+        </ul>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#search").keyup(function(){
+            let key_search = $('#search').val();
+            if(key_search){
+                $.request('onSearch', {
+                data: {key_search : key_search},
+                success: function(data) {
+                    $('#show_kq').css('display','block');
+                    console.log(data);
+                    $('.show_kq').html(data.result);
+                    }
+                })
+            }else{
+                $('#show_kq').css('display','none');
+            }
+            
+        });
+    });
+</script>

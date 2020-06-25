@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="col-md ">
+                <span class="flex-content-center float-left">Lọc theo: &nbsp;&nbsp;&nbsp;</span>
+                <select id="filter" name="item_order">
+                    <option selected="selected" value="">Không có</option>
+                    <option value="checkin">Đã checkin</option>
+                    <option value="do_not_checkin">Chưa checkin</option>
+                    <option value="almost_null">Sắp trống</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="col-md">
+                <span class="flex-content-center float-left">Xem theo: &nbsp;&nbsp;&nbsp;</span>
+                <select id="sorts" name="item_order">
+                    <option selected="selected" value="id_asc">Id Booking nhỏ đến lớn</option>
+                    <option value="id_desc">Id Booking lớn đến nhỏ</option>
+                </select>
+            </div>
+        </div>
+        <ul class="list-group col-md-12 col-xs col-ld pr-0" id="ul_in_booking">
+            {% for a in booking %}
+                <li class="list-group-item li">{{a.renter}}</li>
+            {% endfor %}
+            
+        </ul>
+        <button type="button" class="btn btn-primary more col-md-12 mt-3" data-id="id_asc" id="more">Xem them</button>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#filter").change(function(){
+            let value = $(this).val();
+            $.request('onFilter', {
+                data: {value : value},
+                success: function(data) {
+                    console.log(data);
+                    if(data == ""){
+                        $("#ul_in_booking").html("Không có dữ liệu");
+                        $('#more').css('display','none');
+                    }else{
+                        let obj = '';
+                        for(let a in data){
+                            obj += '<li class="list-group-item li">'+data[a].renter+'</li>';
+                            $('#ul_in_booking').html(obj);
+                            $('#more').css('display','block');
+                        };
+                    }
+                }
+            }) 
+        });
+        $("#sorts").change(function(){
+            let value = $(this).val();
+            let filter = $('#filter').val();
+            $.request('onSort', {
+                data: {value : value,
+                filter:filter},
+                success: function(data) {
+                    console.log(data);
+                    let obj = '';
+                    for(let a in data.sort){
+                        obj += '<li class="list-group-item li">'+data.sort[a].renter+'</li>';
+                        $('#ul_in_booking').html(obj);
+                    };
+                    $('#more').replaceWith('<button type="button" class="btn btn-primary more col-md-12 mt-3" data-id="'+data.type+'" id="more">Xem them</button>');
+                }
+            }) 
+        });
+        $(document).on("click",".more", function(){
+            let count_li = $('.li').length;
+            let data_id = $(this).attr("data-id");
+            let filter = $('#filter').val();
+            $.request('onLoadMore', {
+                data: {count_li : count_li,
+                        sort_type : data_id,
+                        filter: filter},
+                success: function(data) {
+                    let obj = '';
+                    for(let a in data){
+                            obj = '<li class="list-group-item li">'+data[a].renter+'</li>';
+                            $('#ul_in_booking').append(obj);
+                        };
+                }
+            })
+        });
+    });
+</script>

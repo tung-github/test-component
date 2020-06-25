@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Room Type
+
+# Model Form Field configuration
+form: $/tung/booking/models/roomtype/fields.yaml
+
+# Model Class name
+modelClass: Tung\Booking\Models\RoomType
+
+# Default redirect location
+defaultRedirect: tung/booking/roomtypes
+
+# Create page
+create:
+    title: Create Room Type
+    redirect: tung/booking/roomtypes/update/:id
+    redirectClose: tung/booking/roomtypes
+
+# Update page
+update:
+    title: Edit Room Type
+    redirect: tung/booking/roomtypes
+    redirectClose: tung/booking/roomtypes
+
+# Preview page
+preview:
+    title: Preview Room Type

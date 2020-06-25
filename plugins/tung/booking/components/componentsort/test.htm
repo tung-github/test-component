@@ -1,0 +1,4 @@
+{%for a in booking %}
+<li class="list-group-item">{{a.renter}}</li>
+{%endfor%}
+<button type="button" class="btn btn-primary more" data-id="{{ booking.last().id }}" id="more">Xem them</button>

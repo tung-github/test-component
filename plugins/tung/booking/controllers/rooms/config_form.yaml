@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Room
+
+# Model Form Field configuration
+form: $/tung/booking/models/room/fields.yaml
+
+# Model Class name
+modelClass: Tung\Booking\Models\Room
+
+# Default redirect location
+defaultRedirect: tung/booking/rooms
+
+# Create page
+create:
+    title: Create Room
+    redirect: tung/booking/rooms/update/:id
+    redirectClose: tung/booking/rooms
+
+# Update page
+update:
+    title: Edit Room
+    redirect: tung/booking/rooms
+    redirectClose: tung/booking/rooms
+
+# Preview page
+preview:
+    title: Preview Room

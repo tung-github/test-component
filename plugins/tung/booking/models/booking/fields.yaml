@@ -1,0 +1,82 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+        hidden: true
+    renter:
+        label: Renter
+        required: true
+        cssClass: col-xs-4
+        span: left
+    person_number:
+        label: Person
+        type: number
+        step: 1
+        min: 1
+        max: 100
+        required: true
+        cssClass: col-xs-4
+        span: right
+    room_type_id:
+        label: Room Type
+        type: dropdown
+        select: room_type_name
+        cssClass: col-xs-4
+        placeholder: Chọn Room Type
+        span: left
+        required: true
+    status_id:
+        label: Status
+        type: dropdown
+        select: status_name
+        required: true
+        cssClass: col-xs-4
+        span: right
+    bookingToRoom:
+        label: Room
+        type: checkboxlist
+        placeholder: Không có dữ liệu 
+        dependsOn: room_type_id
+        required: true
+        cssClass: col-xs-4
+    checkin_date:
+        label: Checkin Date
+        type: datepicker
+        mode: date
+        required: true
+        span: left
+        cssClass: col-xs-4
+    checkout_date:
+        label: Checkout Date
+        type: datepicker
+        mode: date
+        span: right
+        required: true
+        cssClass: col-xs-4
+    has_checkin:
+        label: Has Checkin
+        type: switch
+        # on: has_checkin.on
+        # off: off::lang.models.booking.has_checkin.off
+        required: true
+        span: left
+        cssClass: col-xs-4
+        # cssClass: col-xs-6
+        # block: left_block
+        # blockCssClass: col-md-6
+    has_checkout:
+        label: Has Checkout
+        type: switch
+        required: true
+        span: right
+        cssClass: col-xs-4
+        # cssClass: right
+        # span: storm
+        # cssClass: col-xs-6
+        # block: right_block
+        # blockCssClass: col-md-6
+    

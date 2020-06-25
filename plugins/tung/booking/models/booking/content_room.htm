@@ -1,0 +1,13 @@
+<?php
+    if(empty($record)){
+        echo '';
+    }else{
+        $item = json_decode($record); //chuyen sang array
+        $count = count($item->booking_to_room);
+        for( $a = 0; $a < $count; $a++){
+           echo $item->booking_to_room[$a]->room_name;
+           echo "<br/>";
+        }
+    //echo $item->booking_to_room[1]->room_name;
+    }
+?>
