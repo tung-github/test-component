@@ -30,3 +30,4 @@ When using Ubuntu, the following command can be run to install all required exte
 sudo apt-get update &&
 sudo apt-get install php php-ctype php-curl php-xml php-fileinfo php-gd php-json php-mbstring php-mysql php-sqlite3 php-zip
 ```
+# test-component-sinka
