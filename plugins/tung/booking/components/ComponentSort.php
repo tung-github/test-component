@@ -25,13 +25,6 @@ class ComponentSort extends ComponentBase
         $this->page['booking'] = Booking::limit(2)->get();
     }
 
-    public function onTest(){
-        $test = new ComponentTest();
-        // $test->onTestintest();
-        $a = $test->onTestintest();
-        return $a;
-    }
-
     public function onFilter(){
         $value = Request::get('value');
         if(Request::get('value') == 'checkin'){
@@ -44,23 +37,25 @@ class ComponentSort extends ComponentBase
             $field = 'checkout_date';
             $value = 'current_date';
         }
-        $a = new ListBooking();
-        $b = $a->onFilter($value,$field);
+        $listBooking = new ListBooking();
+        $booking = $listBooking->onFilter($value,$field);
         Log::info($value); // tra ve 0 khi la do not checkin
-        return $b;
+        return $booking;
     }
 
     public function onSort(){
-        $a = new ListBooking();
-        $b['sort'] = $a->onSort('id',Request::get('value'),Request::get('filter'));
-        $b['type'] = Request::get('value');
-        return $b;
+        $listBooking = new ListBooking();
+        $bookings = $listBooking->onSort('id',Request::get('value'),Request::get('filter'));
+        $type = Request::get('value');
+        return [
+            'bookings' => bookings,
+            'type' => type
+        ];
     }
 
     public function onLoadMore(){
-        $a = new ListBooking();
-        $b = $a->onLoadMore(Request::get('count_li'),Request::get('sort_type'),Request::get('filter'));
-        Log::info($b);
-        return $b;
+        $listBooking = new ListBooking();
+        $booking = $listBooking->onLoadMore(Request::get('count_li'),Request::get('sort_type'),Request::get('filter'));
+        return $booking;
     }
 }
